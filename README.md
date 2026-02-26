@@ -1,10 +1,12 @@
-# VB.NET-Style Event Models (JavaScript/TypeScript Edition)
+# VB.NET-Style Event Models (TypeScript Edition)
 
-A JavaScript/TypeScript library providing event models, message routing, and event scheduling utilities with thread safety, inspired by VB.NET's event model.
+A TypeScript library providing event models, message routing, and event scheduling utilities with thread safety, inspired by VB.NET's event model.
 
-> NOTE: This library was written in pure TypeScript initially but underwent packaging issues, so it's now rewritten in JavaScript with TypeScript declaration files provided for type support. *__Version 1.0.5 only works in JavaScript (CommonJS) with no TypeScript support, so if you're using TypeScript, please upgrade to version 1.0.6 or later.__*
+This library is now written in pure TypeScript with proper type definitions, ensuring type safety and better developer experience. It compiles to CommonJS modules for wide compatibility.
 
-Install this package via NPM: `npm install vbstyle-event-models` (no other dependencies required, current version 1.0.6, now changed to an **ES module**)
+Install this package via NPM: `npm install vbstyle-event-models` (with TypeScript as a peer dependency, current version 1.0.8)
+
+> NOTE: To compile a single TypeScript source file with this package imported in it, use this command on the terminal: `npx tsc [FILENAME].ts --lib "es2015,dom"`
 
 ## Features
 
@@ -61,7 +63,7 @@ await router.unsubscribe('userCreated', handler);
 await router.clearSubscribers('userCreated');
 
 // Get total subscriber count
-const count = await router.getSubscriberCount();
+const count = router.subscriberCount;
 console.log('Total subscribers:', count);
 ```
 
@@ -74,16 +76,16 @@ import { QueueEventScheduler } from 'vbstyle-event-models';
 const scheduler = new QueueEventScheduler();
 
 // Schedule events
-await scheduler.scheduleEvent(() => {
-    console.log('Event 1 executed');
+await scheduler.scheduleEvent((sender, e) => {
+    console.log('Event 1 executed', { sender, args: e });
 });
 
-await scheduler.scheduleEvent(() => {
-    console.log('Event 2 executed');
+await scheduler.scheduleEvent((sender, e) => {
+    console.log('Event 2 executed', { sender, args: e });
 });
 
 // Process all events
-await scheduler.processEvents();
+await scheduler.processEvents('sender', ['arg1', 'arg2']);
 
 // Clear pending events
 await scheduler.clearEvents();

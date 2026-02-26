@@ -11,22 +11,31 @@ export type EventHandler = (sender: any, e: EventArgs) => void;
 /**
  * A basic event model that allows registration and invocation of event handlers.
  */
-export declare class BasicEventModel {
-    #eventHandlers: EventHandler[];
+export class BasicEventModel {
+    private eventHandlers: EventHandler[] = [];
+
     /**
      * Add an event handler to the event model.
      * @param {EventHandler} handler - The event handler to add.
      */
-    addHandler(handler: EventHandler): void;
+    public addHandler(handler: EventHandler): void {
+        this.eventHandlers.push(handler);
+    }
+
     /**
      * Remove an event handler from the event model.
      * @param {EventHandler} handler - The event handler to remove.
      */
-    removeHandler(handler: EventHandler): void;
+    public removeHandler(handler: EventHandler): void {
+        this.eventHandlers = this.eventHandlers.filter(h => h !== handler);
+    }
+
     /**
      * Raise the event from the event model, invoking all registered event handlers.
      * @param {any} sender - The event sender.
      * @param {EventArgs} e - The event arguments.
      */
-    raiseEvent(sender: any, e: EventArgs): void;
+    public raiseEvent(sender: any, e: EventArgs): void {
+        this.eventHandlers.forEach(handler => handler(sender, e));
+    }
 }

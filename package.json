@@ -1,10 +1,12 @@
 {
   "name": "vbstyle-event-models",
-  "version": "1.0.7",
-  "description": "A thread-safe JS/TS library, providing event models, message routing, and event scheduling utilities.",
-  "main": "index.js",
-  "types": "types/index.d.ts",
-  "scripts": {},
+  "version": "1.0.8",
+  "description": "A thread-safe TypeScript library providing event models, message routing, and event scheduling utilities with mutex lock implementation.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "keywords": [
     "events",
     "event-model",
@@ -12,7 +14,8 @@
     "event-scheduler",
     "mutex",
     "mutex-lock",
-    "javascript"
+    "typescript",
+    "thread-safe"
   ],
   "author": "pac-dessert1436",
   "license": "BSD-3-Clause",
@@ -21,15 +24,7 @@
     "url": "https://github.com/Pac-Dessert1436/vbstyle-event-models.git"
   },
   "homepage": "https://github.com/Pac-Dessert1436/vbstyle-event-models",
-  "dependencies": {},
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "types": "./types/index.d.ts"
-    }
-  },
-  "engines": {
-    "node": ">=16.0.0"
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }
