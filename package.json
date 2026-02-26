@@ -1,6 +1,6 @@
 {
   "name": "vbstyle-event-models",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A thread-safe JS/TS library, providing event models, message routing, and event scheduling utilities.",
   "main": "index.js",
   "types": "types/index.d.ts",
