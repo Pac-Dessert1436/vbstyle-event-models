@@ -2,9 +2,9 @@
 
 A JavaScript/TypeScript library providing event models, message routing, and event scheduling utilities with thread safety, inspired by VB.NET's event model.
 
-NOTE: This library was written in pure TypeScript initially but underwent packaging issues, so it's now rewritten in JavaScript with TypeScript declaration files provided for type support.
+> NOTE: This library was written in pure TypeScript initially but underwent packaging issues, so it's now rewritten in JavaScript with TypeScript declaration files provided for type support. *__Version 1.0.5 only works in JavaScript (CommonJS) with no TypeScript support, so if you're using TypeScript, please upgrade to version 1.0.6 or later.__*
 
-Install this package via NPM: `npm install vbstyle-event-models` (no other dependencies required, current version 1.0.5)
+Install this package via NPM: `npm install vbstyle-event-models` (no other dependencies required, current version 1.0.6, now changed to an **ES module**)
 
 ## Features
 

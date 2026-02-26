@@ -1,9 +1,9 @@
 {
   "name": "vbstyle-event-models",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A thread-safe JS/TS library, providing event models, message routing, and event scheduling utilities.",
   "main": "index.js",
-  "types": "index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {},
   "keywords": [
     "events",
@@ -21,5 +21,15 @@
     "url": "https://github.com/Pac-Dessert1436/vbstyle-event-models.git"
   },
   "homepage": "https://github.com/Pac-Dessert1436/vbstyle-event-models",
-  "dependencies": {}
+  "dependencies": {},
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }
